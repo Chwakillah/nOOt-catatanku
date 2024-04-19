@@ -18,20 +18,71 @@ function App() {
     },
   ]);
 
-  
+  const [isUpdate, setIsUpdate] = useState({ id: null, status: false });
+
+  const [formData, setFormdata] = useState({
+    pesan: "",
+  });
+
+  function handleChange(e) {
+    let data = { ...formData };
+    data[e.target.pesan] = e.target.value;
+    setFormdata(data);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("acc");
+
+    if (formData.pesan === "") {
+      return false;
+    }
+    let data = [...notes];
+    if (isUpdate.status) {
+      data.forEach((note) => {
+        if (note.id === isUpdate.id) {
+          note.pesan = formData.pesan;
+        }
+      });
+    } else {
+      data.push({ id: uid(), pesan: formData.pesan });
+    }
+
+    setIsUpdate({ id: null, status: false });
+    setNotes(data);
+    setFormdata({ pesan: "" });
+  }
+
+  function handleEdit(id) {
+    let data = [...notes];
+    let foundData = data.find((note) => note.id === id);
+    setFormdata({ pesan: foundData.pesan });
+    setIsUpdate({ id: id, status: true });
+  }
+  function handleDelete(id) {
+    let data = [...notes];
+    let filteredData = data.filter((note) => note.id != id);
+    setNotes(filteredData);
+  }
 
   return (
     <div>
       <Header />
-      <form action="" className="min-h container bg-sand mx-auto p-4 flex gap-4">
+      <form
+        onSubmit={handleSubmit}
+        className="min-h container bg-sand mx-auto p-4 flex gap-4"
+      >
         <input
           type="text"
           placeholder="Type here"
           className="input input-bordered w-full max-w-xs bg-white h-12 p-4 text-moka rounded-md"
+          value={formData.pesan}
+          onChange={handleChange}
         />
-        <button className="btn btn-neutral bg-moka p-3 rounded-lg text-white font-bold">Catat!</button>
+        <button className="btn btn-neutral bg-moka p-3 rounded-lg text-white font-bold">
+          Catat!
+        </button>
       </form>
-  
     </div>
   );
 }
