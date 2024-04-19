@@ -2,12 +2,28 @@
 import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import Note from "./components/Note";
+import { useState } from "react";
+import { uid } from "uid";
 
 function App() {
+  const [notes, setNotes] = useState([
+    {
+      id: 1,
+      pesan: "belajar react",
+    },
+    {
+      id: 2,
+      pesan: "belajar tailwind",
+    },
+  ]);
+
+  
+
   return (
     <div>
       <Header />
-      <form action="" className="container bg-sand mx-auto p-4 flex gap-4">
+      <form action="" className="min-h container bg-sand mx-auto p-4 flex gap-4">
         <input
           type="text"
           placeholder="Type here"
@@ -15,6 +31,7 @@ function App() {
         />
         <button className="btn btn-neutral bg-moka p-3 rounded-lg text-white font-bold">Catat!</button>
       </form>
+  
     </div>
   );
 }
