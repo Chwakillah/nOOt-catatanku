@@ -11,7 +11,7 @@ const Note = ({ data, handleEdit, handleDelete }) => {
         return (
           <div key={note.id} className="">
             <div className="flex gap-4">
-              <h5 className="textarea textarea-ghost bg-white p-4 text-moka rounded-md my-2 resize-vertical-none">
+              <h5 className="textarea textarea-ghost bg-white p-4 text-moka rounded-md my-2 resize-none">
                 {note.pesan}
               </h5>
               <div className="flex gap-4">

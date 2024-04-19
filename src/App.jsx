@@ -75,7 +75,7 @@ function App() {
           <textarea
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full bg-white h-12 p-4 text-moka rounded-md"
+            className="input input-bordered w-full bg-white h-12 p-4 text-moka rounded-md resize-none"
             name="pesan"
             value={formData.pesan}
             onChange={handleChange}
