@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Note from "./components/Note";
@@ -23,6 +23,10 @@ function App() {
     pesan: "",
   });
 
+  useEffect(() => {
+    alert("Notes berhasil diedit!");
+  }, [isUpdate]);
+
   function handleChange(e) {
     let data = { ...formData };
     data[e.target.name] = e.target.value;
@@ -31,8 +35,7 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert("acc");
-
+    alert("acc jok")
     if (formData.pesan === "") {
       return false;
     }
