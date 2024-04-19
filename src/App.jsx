@@ -25,7 +25,7 @@ function App() {
 
   function handleChange(e) {
     let data = { ...formData };
-    data[e.target.pesan] = e.target.value;
+    data[e.target.name] = e.target.value;
     setFormdata(data);
   }
 
