@@ -24,8 +24,8 @@ function App() {
   });
 
   useEffect(() => {
-    if (isUpdate.status) {
-      alert("Notes berhasil diedit!");
+    if (isUpdate.status===true) {
+      alert("Silahkan mengedit!");
     }
   }, [isUpdate]);
 
