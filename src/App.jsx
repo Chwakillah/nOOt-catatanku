@@ -67,27 +67,25 @@ function App() {
   return (
     <div>
       <Header />
-      <form
-        onSubmit={handleSubmit}
-        className="min-h container bg-sand mx-auto p-4 flex gap-4"
-      >
-        <input
-          type="text"
-          placeholder="Type here"
-          className="input input-bordered w-full max-w-xs bg-white h-12 p-4 text-moka rounded-md"
-          name="pesan"
-          value={formData.pesan}
-          onChange={handleChange}
-        />
-        <button className="btn btn-neutral bg-moka p-3 rounded-lg text-white font-bold">
-          Catat!
-        </button>
-      </form>
-      <Note
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-        data={notes}
-      />
+      <div className="container mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="min-h bg-sand mx-auto p-4 flex flex-col gap-4"
+        >
+          <textarea
+            type="text"
+            placeholder="Type here"
+            className="input input-bordered w-full bg-white h-12 p-4 text-moka rounded-md"
+            name="pesan"
+            value={formData.pesan}
+            onChange={handleChange}
+          />
+          <button className="btn btn-neutral bg-moka p-3 rounded-lg text-white font-bold">
+            Catat!
+          </button>
+        </form>
+      </div>
+      <Note handleEdit={handleEdit} handleDelete={handleDelete} data={notes} />
     </div>
   );
 }
