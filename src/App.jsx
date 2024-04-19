@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Note from "./components/Note";
-import { useState } from "react";
 import { uid } from "uid";
 
 function App() {
@@ -76,6 +75,7 @@ function App() {
           type="text"
           placeholder="Type here"
           className="input input-bordered w-full max-w-xs bg-white h-12 p-4 text-moka rounded-md"
+          name="pesan"
           value={formData.pesan}
           onChange={handleChange}
         />
@@ -83,6 +83,11 @@ function App() {
           Catat!
         </button>
       </form>
+      <Note
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+        data={notes}
+      />
     </div>
   );
 }
